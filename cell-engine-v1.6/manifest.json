@@ -1,0 +1,16 @@
+{
+  "organism_id": "organism.tint-demo",
+  "genome_id": "sha256:fa267e9c601e6c543c0f96dec4ba42e77cb10ab4a55af6afbfb6197be6d778ca",
+  "tissues": [
+    {
+      "tissue_id": "tissue.blender",
+      "host": "blender",
+      "mask_id": "mask.public"
+    },
+    {
+      "tissue_id": "tissue.tauri",
+      "host": "tauri",
+      "mask_id": "mask.public"
+    }
+  ]
+}

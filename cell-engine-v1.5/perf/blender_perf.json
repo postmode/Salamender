@@ -1,0 +1,106 @@
+{
+  "phase": "A (python)",
+  "environment": {
+    "python": "3.12.16",
+    "numpy": "2.1.3",
+    "bpy": "STANDIN headless (no Blender binary)",
+    "label": {
+      "arena_scheduler_crdt_membrane": "REAL (numpy, this process)",
+      "bpy_materialize": "STANDIN-bpy",
+      "addon_lifecycle_roundtrips": "REAL (register/unregister/load_post handler; Blender event loop untested)",
+      "blender_frame_60fps": "UNTESTED (no Blender binary in sandbox)"
+    }
+  },
+  "e1_addon_lifecycle": {
+    "enable_ms_first": 0.16969199987215688,
+    "enable_ms_reenable": 0.24453900005028117,
+    "lineage_same_after_reenable": true,
+    "tint_after_reenable": 0.8840000033378601,
+    "tint_not_reset": true,
+    "ops_preserved": true,
+    "snapshot_exists": true,
+    "mat_before_export": [
+      0.8840000033378601,
+      0.8840000033378601,
+      0.8840000033378601,
+      1.0
+    ],
+    "tint_after_load_post": 0.8840000033378601,
+    "lineage_same_after_load_post": true
+  },
+  "module_import_ms": 179.6670300000187,
+  "e4_frame_budget_200k": {
+    "cells": 200000,
+    "ticks": 240,
+    "budget_us": 2000,
+    "impulses_per_tick": 800,
+    "tick_p50_us": 949.554,
+    "tick_p99_us": 1097.868,
+    "active_avg": 8406.7,
+    "activity_rate_pct": 4.2,
+    "deferred_total": 0,
+    "resting_floor_us": 401.392,
+    "strided_spec_dtype_scan_floor_us": 971.201,
+    "layout_note": "spec dtype kept as body-of-record; metabolism runs on contiguous mirror columns \u2014 see strided vs resting floor numbers",
+    "worst_case_all_active": {
+      "executed": 200000,
+      "deferred": 0,
+      "ns": 2741090
+    },
+    "worst_case_all_active_us": 2741.09,
+    "graft_us_per_call_standin_bpy": 0.6622605,
+    "graft_projection_14k_us": 9271.647
+  },
+  "e5_membrane": {
+    "public_drop": true,
+    "trusted_allow": true,
+    "flip": {
+      "kernel_reloaded": false,
+      "slot_changed": false,
+      "lineage_changed": false,
+      "ops_preserved": true,
+      "epoch": 2
+    },
+    "kernel_identity_preserved": true,
+    "tape_digest": "fnv1a64:9575468746670681964"
+  },
+  "e6_determinism": {
+    "run1_tape_digest": "fnv1a64:9575468746670681964",
+    "run2_tape_digest": "fnv1a64:9575468746670681964",
+    "deterministic": true,
+    "run1_op_digest": "fnv1a64:11520714716851241111",
+    "run2_op_digest": "fnv1a64:11520714716851241111"
+  },
+  "e3_export": {
+    "path": "/home/z/my-project/download/cell-engine-v1.5/regeneration/crdt_snapshot.jsonl",
+    "header": {
+      "kind": "cell.snapshot",
+      "schema": "v1.5",
+      "cell_type": "cell.tint.v1",
+      "lineage": "01a17d1d-e392-7d0b-9a87-07348c36a325",
+      "genome_id": "sha256:fa267e9c601e6c543c0f96dec4ba42e77cb10ab4a55af6afbfb6197be6d778ca",
+      "tint": 0.8840000033378601,
+      "epoch": 6,
+      "mask_epoch": 2,
+      "actor_id": "blender.1",
+      "op_count": 5,
+      "op_digest": "fnv1a64:11520714716851241111",
+      "generator": "python/cell_engine_blender"
+    },
+    "lineage": "01a17d1d-e392-7d0b-9a87-07348c36a325",
+    "tint": 0.8840000033378601,
+    "ops": 5,
+    "op_digest": "fnv1a64:11520714716851241111"
+  },
+  "tape_lines": [
+    "op|set_tint|0.750000|1|blender.1",
+    "op|set_tint|0.788000|2|blender.1",
+    "op|set_tint|0.812000|3|blender.1",
+    "op|set_tint|0.850000|4|blender.1",
+    "op|set_tint|0.884000|5|blender.1",
+    "membrane.allow|render.tint|1",
+    "membrane.drop|data.query.peers|1",
+    "mask.flip|1|2",
+    "membrane.allow|data.query.peers|2"
+  ]
+}

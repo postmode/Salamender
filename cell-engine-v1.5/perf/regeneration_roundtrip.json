@@ -1,0 +1,12 @@
+{
+  "phase": "C (python re-import of tauri return snapshot)",
+  "lineage": "01a17d1d-e392-7d0b-9a87-07348c36a325",
+  "tint": 0.9100000262260437,
+  "ops": 6,
+  "digest": "fnv1a64:1671619312449390058",
+  "digest_matches_header": true,
+  "epoch": 7,
+  "tint_is_0p910": true,
+  "ops_is_6": true,
+  "lineage_is_canonical": true
+}

@@ -1,0 +1,21 @@
+{
+  "$schema": "https://schema.tauri.app/config/2",
+  "productName": "tauri-cell",
+  "version": "1.5.0",
+  "identifier": "local.cellengine.tauricell",
+  "build": {
+    "frontendDist": "../dist"
+  },
+  "app": {
+    "windows": [
+      {
+        "title": "Cell Tissue — cell.tint.v1",
+        "width": 480,
+        "height": 200
+      }
+    ],
+    "security": {
+      "csp": null
+    }
+  }
+}

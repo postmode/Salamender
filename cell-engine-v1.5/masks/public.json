@@ -1,0 +1,20 @@
+{
+  "mask_id": "mask.public",
+  "epoch": 1,
+  "audience": "public",
+  "allowed_verbs": [
+    "render.tint",
+    "state.set"
+  ],
+  "denied_verbs": [
+    "data.query.peers"
+  ],
+  "membrane": {
+    "read": [
+      "state.tint"
+    ],
+    "write": [
+      "state.tint"
+    ]
+  }
+}

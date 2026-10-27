@@ -1,4 +1,4 @@
-// Universal Cell Engine v1.5 — Tissue B: Tauri webview shim (framework-free).
+// Universal Cell Engine v1.6 — Tissue B: Tauri webview shim (framework-free).
 //
 // PRODUCTION (Tauri 2.0): the scheduler + CRDT live in Rust (src-tauri/src/main.rs);
 // this shim calls invoke('cell_tick') / invoke('cell_snapshot') over IPC and drains
@@ -415,7 +415,7 @@ export class Tissue {
     const tint = this.arena.tint[this.slot];
     const header = {
       kind: 'cell.snapshot',
-      schema: '1.5',
+      schema: 'v1.6',
       cell_type: 'cell.tint.v1',
       lineage: this.lineage,
       genome_id: this.genome['genome_id'],

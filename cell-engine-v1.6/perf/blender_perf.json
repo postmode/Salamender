@@ -1,21 +1,23 @@
 {
   "phase": "A (python)",
   "environment": {
-    "python": "3.11.7",
-    "numpy": "1.24.3",
+    "python": "3.12.10",
+    "numpy": "2.3.1",
     "bpy": "STANDIN headless (no Blender binary)",
     "label": {
       "arena_scheduler_crdt_membrane": "REAL (numpy, this process)",
-      "bpy_materialize": "REAL",
+      "bpy_materialize": "STANDIN-bpy",
       "addon_lifecycle_roundtrips": "REAL (register/unregister/load_post handler; Blender event loop untested)",
       "blender_frame_60fps": "UNTESTED (no Blender binary in sandbox)"
     }
   },
   "e1_addon_lifecycle": {
-    "enable_ms_first": 0.41081499989559234,
-    "enable_ms_reenable": 0.4724499999610998,
+    "enable_ms_reenable": 0.4085479999957897,
     "lineage_same_after_reenable": true,
     "tint_after_reenable": 0.8840000033378601,
+    "tint_after_load_post": 0.8840000033378601,
+    "lineage_same_after_load_post": true,
+    "enable_ms_first": 0.31611399992925726,
     "tint_not_reset": true,
     "ops_preserved": true,
     "snapshot_exists": true,
@@ -24,32 +26,36 @@
       0.8840000033378601,
       0.8840000033378601,
       1.0
-    ],
-    "tint_after_load_post": 0.8840000033378601,
-    "lineage_same_after_load_post": true
+    ]
   },
-  "module_import_ms": 99.82073100002253,
+  "module_import_ms": 323.79644600007396,
   "e4_frame_budget_200k": {
     "cells": 200000,
     "ticks": 240,
     "budget_us": 2000,
     "impulses_per_tick": 800,
-    "tick_p50_us": 1065.13,
-    "tick_p99_us": 3222.852,
-    "active_avg": 12784.2,
-    "activity_rate_pct": 6.39,
-    "deferred_total": 66393,
-    "resting_floor_us": 381.512,
-    "strided_spec_dtype_scan_floor_us": 738.941,
+    "tick_p50_us": 1187.926,
+    "tick_p99_us": 52574.698,
+    "active_avg": 12105.4,
+    "activity_rate_pct": 6.05,
+    "deferred_total": 291360,
+    "resting_floor_us": 392.498,
+    "strided_spec_dtype_scan_floor_us": 2056.927,
     "layout_note": "spec dtype kept as body-of-record; metabolism runs on contiguous mirror columns \u2014 see strided vs resting floor numbers",
     "worst_case_all_active": {
       "executed": 200000,
       "deferred": 0,
-      "ns": 5919841
+      "ns": 3313605
     },
-    "worst_case_all_active_us": 5919.841,
-    "graft_us_per_call_standin_bpy": 0.2863025,
-    "graft_projection_14k_us": 4008.235
+    "worst_case_all_active_us": 3313.605,
+    "graft_us_per_call": 0.18018,
+    "graft_label": "STANDIN-bpy",
+    "bound_nouns": 1,
+    "graft_us_per_drain_all_nouns": 0.18018,
+    "combined_tick_p50_us": 1109.168,
+    "combined_tick_p99_us": 53949.047,
+    "graft_projection_14k_us": 2522.52,
+    "condition": ""
   },
   "e5_membrane": {
     "public_drop": true,

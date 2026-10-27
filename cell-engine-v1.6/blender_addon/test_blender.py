@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""v1.5 Phase A harness — Blender tissue experiments.
+"""v1.6 Phase A harness — Blender tissue experiments.
 
 Usage:  python3 test_blender.py scenario   (E1+E3-export+E5+E6, writes perf jsons)
         python3 test_blender.py roundtrip  (Phase C: re-import the Tauri return snapshot)
@@ -197,8 +197,8 @@ def e1_lifecycle() -> dict:
 
 
 # ---------------------------------------------------------------- E4: frame budget @ 200k
-def e4_perf(graft=None, label="") -> dict:
-    """E4 conditions A/B (v1.6): scheduler @200k + REAL bound-noun grafts measured
+def e4_perf(graft=None, label="scheduler-only (condition C)") -> dict:
+    """E4 conditions A/B/C (v1.6): scheduler @200k + REAL bound-noun grafts measured
     together and separately. graft=None -> NullGraft (condition C, scheduler only)."""
     tissue = addon.Tissue(addon.load_genome(), addon.load_mask(addon.MASK_PUBLIC_PATH),
                           graft or addon.NullGraft(), name="blender-perf", capacity=N_PERF + 1)
@@ -342,18 +342,26 @@ def main(mode: str) -> None:
     r2 = run_scenario()
     e1 = e1_lifecycle()
     e3 = e3_export(r1)
+    # E4 condition C: scheduler-only (NullGraft). Condition B is measured inside
+    # condition A's run when a real bound noun exists (bound_nouns field); the
+    # combined column (scheduler + one canonical drain per tick) covers A.
     e4 = e4_perf()
 
+    env_bpy = "REAL bpy 4.x (in-process)" if addon.HAVE_BPY else "STANDIN headless (no Blender binary)"
     labels = {
         "arena_scheduler_crdt_membrane": "REAL (numpy, this process)",
-        "bpy_materialize": "STANDIN-bpy" if not addon.HAVE_BPY else "REAL",
-        "addon_lifecycle_roundtrips": "REAL (register/unregister/load_post handler; Blender event loop untested)",
-        "blender_frame_60fps": "UNTESTED (no Blender binary in sandbox)",
+        "bpy_materialize": "REAL bpy diffuse_color write" if addon.HAVE_BPY else "STANDIN-bpy",
+        "addon_lifecycle_roundtrips": ("REAL (addon_utils disable/enable via Blender extension "
+                                       "machinery, .blend save/reload, load_post handler, WM timer pump)"
+                                       if addon.HAVE_BPY else
+                                       "REAL (register/unregister/load_post handler; Blender event loop untested)"),
+        "blender_frame_60fps": ("REAL (bpy.app.timers pumped through _bpy._window_process_events)"
+                                 if addon.HAVE_BPY else "UNTESTED (no Blender binary in sandbox)"),
     }
     perf = {
         "phase": "A (python)",
         "environment": {"python": sys.version.split()[0], "numpy": np.__version__,
-                        "bpy": "STANDIN headless (no Blender binary)", "label": labels},
+                        "bpy": env_bpy, "label": labels},
         "e1_addon_lifecycle": e1,
         "module_import_ms": import_ms,
         "e4_frame_budget_200k": e4,
@@ -390,4 +398,13 @@ def main(mode: str) -> None:
 
 
 if __name__ == "__main__":
-    main(sys.argv[1] if len(sys.argv) > 1 else "scenario")
+    # Under Blender the harness is invoked as: blender --background --python test_blender.py -- scenario
+    argv = sys.argv
+    mode = "scenario"
+    if "--" in argv:
+        tail = argv[argv.index("--") + 1:]
+        if tail:
+            mode = tail[0]
+    elif len(argv) > 1:
+        mode = argv[1]
+    main(mode)

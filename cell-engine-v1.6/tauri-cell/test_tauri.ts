@@ -1,4 +1,4 @@
-// v1.5 Phase B harness — Tauri tissue experiments (Node proof tier).
+// v1.6 Phase B harness — Tauri tissue experiments (Node proof tier).
 //
 // REAL here : SharedArrayBuffer arena + worker_threads scheduler (same SAB/
 //             postMessage/Atomics semantics as a Web Worker in the webview),
@@ -20,6 +20,11 @@ import {
 const OPS: Array<[number, number]> = [[0.75, 1], [0.788, 2], [0.812, 3], [0.85, 4], [0.884, 5]];
 const N_PERF = 200_000;
 const PY = JSON.parse(readFileSync(ROOT + 'perf/_python_digests.json', 'utf8'));
+import { existsSync } from 'node:fs';
+const RUST_BIN = ROOT + 'tauri-cell/src-tauri/target/release/tauri-cell';
+const RUST_SHARD_LABEL = existsSync(RUST_BIN)
+  ? 'COMPILED (cargo build --release, ELF at src-tauri/target/release/tauri-cell)'
+  : 'NOT COMPILED (no cargo in sandbox) — real code at src-tauri/src/main.rs';
 
 function pct(sorted: number[], p: number): number {
   if (!sorted.length) return 0;
@@ -205,7 +210,7 @@ async function main() {
       labels: {
         arena_scheduler_crdt_membrane: 'REAL (SAB + worker, this process tree)',
         dom_materialize: 'STANDIN-DOM',
-        rust_shard: 'NOT COMPILED (no cargo in sandbox) — real code at src-tauri/src/main.rs',
+        rust_shard: RUST_SHARD_LABEL,
         tauri_ipc: 'PROXY (MessageChannel round trip; real invoke untested)',
       },
     },
@@ -233,7 +238,7 @@ async function main() {
   };
   writeFileSync(ROOT + 'perf/tauri_perf.json', JSON.stringify(perf, null, 2), 'utf8');
 
-  const D = `Universal Cell Engine v1.5 — determinism digest evidence
+  const D = `Universal Cell Engine v1.6 — determinism digest evidence
 genome contract
   sha256 (python)    : ${PY.genome_sha}
   sha256 (node)      : ${genomeNode}

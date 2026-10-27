@@ -1,34 +1,5 @@
-# Operating system files
-.DS_Store
-Thumbs.db
-Desktop.ini
-
-# Editor and IDE files
-.idea/
-.vscode/
-*.swp
-*.swo
-
-# Local environment and secrets
-.env
-.env.*
-!.env.example
-
-# Logs and temporary files
-*.log
-*.tmp
-*.bak
-
-# Dependencies and virtual environments
-node_modules/
-vendor/
-.venv/
-venv/
-
-# Generated output and caches
-build/
-dist/
-out/
-coverage/
 __pycache__/
-*.py[cod]
+*.pyc
+Cargo.lock
+target/
+dist/

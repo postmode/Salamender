@@ -1,0 +1,19 @@
+{
+  "mask_id": "mask.trusted",
+  "epoch": 2,
+  "audience": "trusted",
+  "allowed_verbs": [
+    "render.tint",
+    "state.set",
+    "data.query.peers"
+  ],
+  "denied_verbs": [],
+  "membrane": {
+    "read": [
+      "state.tint"
+    ],
+    "write": [
+      "state.tint"
+    ]
+  }
+}

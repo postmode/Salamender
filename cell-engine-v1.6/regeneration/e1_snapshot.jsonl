@@ -1,0 +1,1 @@
+{"kind": "cell.snapshot", "schema": "1.5", "cell_type": "cell.tint.v1", "lineage": "01a17d1d-e392-7d0b-9a87-07348c36a325", "genome_id": "sha256:fa267e9c601e6c543c0f96dec4ba42e77cb10ab4a55af6afbfb6197be6d778ca", "tint": 0.0, "epoch": 1, "mask_epoch": 1, "actor_id": "blender.1", "op_count": 0, "op_digest": "fnv1a64:14695981039346656037", "generator": "blender.addon.e1-seed"}

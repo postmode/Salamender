@@ -1,0 +1,7 @@
+{"kind":"cell.snapshot","schema":"1.5","cell_type":"cell.tint.v1","lineage":"01a17d1d-e392-7d0b-9a87-07348c36a325","genome_id":"sha256:fa267e9c601e6c543c0f96dec4ba42e77cb10ab4a55af6afbfb6197be6d778ca","tint":0.9100000262260437,"epoch":7,"mask_epoch":1,"actor_id":"blender.1","op_count":6,"op_digest":"fnv1a64:1671619312449390058","generator":"node/tauri_cell"}
+{"op":"set_tint","value":0.75,"ts":1,"actor":"blender.1"}
+{"op":"set_tint","value":0.7879999876022339,"ts":2,"actor":"blender.1"}
+{"op":"set_tint","value":0.8119999766349792,"ts":3,"actor":"blender.1"}
+{"op":"set_tint","value":0.8500000238418579,"ts":4,"actor":"blender.1"}
+{"op":"set_tint","value":0.8840000033378601,"ts":5,"actor":"blender.1"}
+{"op":"set_tint","value":0.9100000262260437,"ts":6,"actor":"tauri.1"}

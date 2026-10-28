@@ -1,0 +1,110 @@
+{
+  "phase": "B (node)",
+  "environment": {
+    "node": "v20.20.2",
+    "runtime": "worker_threads + SharedArrayBuffer (webview-equivalent semantics)",
+    "labels": {
+      "arena_scheduler_crdt_membrane": "REAL (SAB + worker, this process tree)",
+      "dom_materialize": "STANDIN-DOM",
+      "rust_shard": "NOT COMPILED (no cargo in sandbox) — real code at src-tauri/src/main.rs",
+      "tauri_ipc": "PROXY (MessageChannel round trip; real invoke untested)"
+    }
+  },
+  "e2_tauri_tissue": {
+    "commands_declared": [
+      "cell_tick",
+      "cell_snapshot"
+    ],
+    "ipc_proxy": {
+      "rtt_p50_us": 12.577000000078442,
+      "rtt_p99_us": 154.46899999994912,
+      "samples": 1000
+    },
+    "genome_check": {
+      "node": "sha256:fa267e9c601e6c543c0f96dec4ba42e77cb10ab4a55af6afbfb6197be6d778ca",
+      "python": "sha256:fa267e9c601e6c543c0f96dec4ba42e77cb10ab4a55af6afbfb6197be6d778ca",
+      "match": true
+    }
+  },
+  "e3_regeneration": {
+    "asserts": {
+      "lineage_identical": true,
+      "tint_resumed_at_0_884": true,
+      "tint_not_reset_to_0_725": true,
+      "op_log_length_identical": true,
+      "causal_digest_identical": true,
+      "genome_identical": true,
+      "header_ops": 5,
+      "header_digest": "fnv1a64:11520714716851241111"
+    },
+    "all_passed": true,
+    "continued_tint": 0.9100000262260437,
+    "materialized_background": "rgb(232,232,232)",
+    "return_header": {
+      "kind": "cell.snapshot",
+      "schema": "1.5",
+      "cell_type": "cell.tint.v1",
+      "lineage": "01a17d1d-e392-7d0b-9a87-07348c36a325",
+      "genome_id": "sha256:fa267e9c601e6c543c0f96dec4ba42e77cb10ab4a55af6afbfb6197be6d778ca",
+      "tint": 0.9100000262260437,
+      "epoch": 7,
+      "mask_epoch": 1,
+      "actor_id": "blender.1",
+      "op_count": 6,
+      "op_digest": "fnv1a64:1671619312449390058",
+      "generator": "node/tauri_cell"
+    }
+  },
+  "e4_frame_budget_200k": {
+    "cells": 200000,
+    "build_ms": 8.151302999999999,
+    "ticks": 240,
+    "budget_us": 2000,
+    "impulses_per_tick": 800,
+    "tick_p50_us": 1210.714,
+    "tick_p99_us": 2208.86,
+    "active_avg": 9824,
+    "activity_rate_pct": 4.91,
+    "deferred_total": 0,
+    "resting_floor_us": 773.376,
+    "worst_case_all_active": {
+      "executed": 200000,
+      "deferred": 0,
+      "ns": 8932659
+    },
+    "worst_case_all_active_us": 8932.659,
+    "graft_us_per_call_standin_dom": 0.6851363499999991,
+    "graft_projection_14k_us": 9591.908899999988
+  },
+  "e5_membrane": {
+    "public_drop": true,
+    "trusted_allow": true,
+    "flip": {
+      "kernel_reloaded": false,
+      "sab_identity_preserved": true,
+      "slot_changed": false,
+      "lineage_changed": false,
+      "ops_preserved": true,
+      "epoch": 2
+    },
+    "sab_identity_preserved": true,
+    "tape_digest": "fnv1a64:9575468746670681964"
+  },
+  "e6_determinism": {
+    "run1_tape_digest": "fnv1a64:9575468746670681964",
+    "run2_tape_digest": "fnv1a64:9575468746670681964",
+    "deterministic": true,
+    "cross_runtime_with_python": true
+  },
+  "tape_lines": [
+    "op|set_tint|0.750000|1|blender.1",
+    "op|set_tint|0.788000|2|blender.1",
+    "op|set_tint|0.812000|3|blender.1",
+    "op|set_tint|0.850000|4|blender.1",
+    "op|set_tint|0.884000|5|blender.1",
+    "membrane.allow|render.tint|1",
+    "membrane.drop|data.query.peers|1",
+    "mask.flip|1|2",
+    "membrane.allow|data.query.peers|2"
+  ]
+}

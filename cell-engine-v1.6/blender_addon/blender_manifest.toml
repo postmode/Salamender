@@ -1,0 +1,16 @@
+# Blender 4.2+ extension manifest (spec E1: register as addon, not a Text Editor script)
+schema_version = "1.0.0"
+
+id = "cell_engine_blender"
+version = "1.5.0"
+name = "Cell Engine Tissue"
+tagline = "Universal Cell Engine v1.5 tissue — cell.tint.v1 inhabiting the scene graph"
+maintainer = "Cell Engine <dev@cell-engine.local>"
+type = "add-on"
+
+blender_version_min = "4.2.0"
+
+license = ["SPDX:MIT"]
+
+[permissions]
+files = "Read genome/mask/snapshot contract files next to the addon"

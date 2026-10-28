@@ -1,0 +1,22 @@
+{
+  "cells": [
+    {
+      "cell_id": "cell.tint.v1",
+      "verbs": [
+        "render.tint",
+        "state.set"
+      ],
+      "state_schema": {
+        "tint": "f32"
+      }
+    }
+  ],
+  "topology": [
+    {
+      "from": "cell.tint.v1",
+      "to": "host.render",
+      "signal": "render.tint"
+    }
+  ],
+  "genome_id": "sha256:fa267e9c601e6c543c0f96dec4ba42e77cb10ab4a55af6afbfb6197be6d778ca"
+}
